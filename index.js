@@ -20,9 +20,9 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://localhost:1337',  // Don't forget to change to https if needed
   restAPIKey: process.env.REST_API_KEY || 'myRESTAPIKey', // Use this key when storing and accessing your own files through Parse Server
   filesAdapter: new S3Adapter(
-    "AWS_ACCESS_KEY_ID",
-    "AWS_SECRET_ACCESS_KEY",
-    "BUCKET_NAME",
+    process.env.AWS_ACCESS_KEY_ID || "AWS_ACCESS_KEY_ID",
+    process.env.AWS_SECRET_ACCESS_KEY || "AWS_SECRET_ACCESS_KEY",
+    process.env.BUCKET_NAME || "BUCKET_NAME",
     {directAccess: true}
   )
 });
