@@ -26,3 +26,8 @@ Parse.Cloud.beforeDelete('TestObject', function(request, response) {
 Parse.Cloud.afterDelete('TestObject', function(request, response) {
   console.log('Ran afterDelete on objectId: ' + request.object.id);
 });
+
+Parse.Cloud.define("find", function(request, response) {
+  console.log('Ran find function.');
+  response.success("Find something...");
+});
