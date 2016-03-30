@@ -8,12 +8,6 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world! " + (request.params.a + request.params.b));
 });
 
-Parse.Cloud.define("test", function(request, response) {
-  console.log('Ran test function.');
-  response.success("Test 123");
-});
-
-
 Parse.Cloud.beforeSave('TestObject', function(request, response) {
   console.log('Ran beforeSave on objectId: ' + request.object.id);
   // if update the request object, we need to send it back with the response
