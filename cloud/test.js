@@ -1,4 +1,3 @@
-Parse.Cloud.define("test", function(request, response) {
-  console.log('Ran test function.');
-  response.success("Test 123");
-});
+module.exports.test = function(name) {
+  return "Test 123";
+}

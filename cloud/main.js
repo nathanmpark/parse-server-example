@@ -1,3 +1,7 @@
+var name = require('cloud/name.js');
+var test = require('cloud/test.js');
+
+
 Parse.Cloud.define("hello", function(request, response) {
   console.log('Ran cloud function.');
   // As with Parse-hosted Cloud Code, the user is available at: request.user
@@ -12,6 +16,20 @@ Parse.Cloud.define("find", function(request, response) {
   console.log('Ran find function.');
   response.success("Find something...");
 });
+
+Parse.Cloud.define("test", function(request, response) {
+  console.log('Ran test function.');
+  response.success(test.test);
+});
+
+Parse.Cloud.define("name", function(request, response) {
+  console.log('Ran name function.');
+  response.success("This is ..." + name.isACoolName('Fred'));
+});
+
+name.isACoolName('Fred'); // returns false
+name.isACoolName('Skippy'); // returns true;
+name.coolNames; // undefined.
 
 // Parse.Cloud.beforeSave('TestObject', function(request, response) {
 //   console.log('Ran beforeSave on objectId: ' + request.object.id);
