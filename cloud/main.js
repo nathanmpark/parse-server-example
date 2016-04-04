@@ -1,22 +1,22 @@
 var name = require('./name.js');
 var test = require('../cloud/test.js');
 
-// var client = require('../cloud/myMailModule-1.0.0.js');
-// client.initialize('myDsomainName', 'myAPIKey');
+var client = require('../cloud/myMailModule-1.0.0.js');
+client.initialize('myDsomainName', 'myAPIKey');
 
-// Parse.Cloud.define("sendEmailToUser", function(request, response) {
-//   client.sendEmail({
-//     to: "nathan@mlab.com",
-//     from: "MyMail@CloudCode.compatible",
-//     subject: "Hello from Cloud Code!",
-//     text: "Using Parse and My Mail Module is great!"
-//   }).then(function(httpResponse) {
-//     response.success("Email sent!");
-//   }, function(httpResponse) {
-//     console.error(httpResponse);
-//     response.error("Uh oh, something went wrong");
-//   });
-// });
+Parse.Cloud.define("sendEmailToUser", function(request, response) {
+  client.sendEmail({
+    to: "nathan@mlab.com",
+    from: "MyMail@CloudCode.compatible",
+    subject: "Hello from Cloud Code!",
+    text: "Using Parse and My Mail Module is great!"
+  }).then(function(httpResponse) {
+    response.success("Email sent!");
+  }, function(httpResponse) {
+    console.error(httpResponse);
+    response.error("Uh oh, something went wrong");
+  });
+});
 
 Parse.Cloud.define("hello", function(request, response) {
   console.log('Ran cloud function.');
