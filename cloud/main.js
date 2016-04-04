@@ -1,6 +1,22 @@
-var name = require('cloud/name.js');
-var test = require('cloud/test.js');
+var name = require('./name.js');
+var test = require('../cloud/test.js');
 
+var client = require('../cloud/myMailModule-1.0.0.js');
+client.initialize('myDomainName', 'myAPIKey');
+
+Parse.Cloud.define("sendEmailToUser", function(request, response) {
+  client.sendEmail({
+    to: "nathan@mlab.com",
+    from: "MyMail@CloudCode.compatible",
+    subject: "Hello from Cloud Code!",
+    text: "Using Parse and My Mail Module is great!"
+  }).then(function(httpResponse) {
+    response.success("Email sent!");
+  }, function(httpResponse) {
+    console.error(httpResponse);
+    response.error("Uh oh, something went wrong");
+  });
+});
 
 Parse.Cloud.define("hello", function(request, response) {
   console.log('Ran cloud function.');
@@ -19,17 +35,13 @@ Parse.Cloud.define("find", function(request, response) {
 
 Parse.Cloud.define("test", function(request, response) {
   console.log('Ran test function.');
-  response.success(test.test);
+  response.success(test.isThisWorking());
 });
 
 Parse.Cloud.define("name", function(request, response) {
   console.log('Ran name function.');
-  response.success("This is ..." + name.isACoolName('Fred'));
+  response.success("Fred is ... " + name.isACoolName('Fred') + ", Skippy is ... " + name.isACoolName('Skippy') + ", coolNames is ... " + name.coolNames);
 });
-
-name.isACoolName('Fred'); // returns false
-name.isACoolName('Skippy'); // returns true;
-name.coolNames; // undefined.
 
 // Parse.Cloud.beforeSave('TestObject', function(request, response) {
 //   console.log('Ran beforeSave on objectId: ' + request.object.id);
