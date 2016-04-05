@@ -1,5 +1,5 @@
-var name = require('cloud/name.js');
-var test = require('cloud/test.js');
+var name = require('./name.js');
+var test = require('./test.js');
 
 var client = require('./myMailModule-1.0.0.js');
 client.initialize('myDsomainName', 'myAPIKey');
