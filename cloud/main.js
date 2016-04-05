@@ -11,8 +11,8 @@ Parse.Cloud.define("sendEmailToUser", function(request, response) {
   client.sendEmail({
     to: "nathan@mlab.com",
     from: "postmaster@sandbox819da0b0367e4c38a3796cc74f7ba65c.mailgun.org",
-    subject: "Hello from Cloud Code!",
-    text: "Using Parse and My Mail Module is great!"
+    subject: "Nathan Test!",
+    text: "Hello 123!"
   }).then(function(httpResponse) {
     response.success("Email sent!");
   }, function(httpResponse) {
