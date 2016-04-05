@@ -18,7 +18,7 @@ Parse.Cloud.define("sendEmailToUser", function(request, response) {
   });
 });
 
-Parse.Cloud.define("hello", function(request, response) {
+Parse.Cloud.define("asdf", function(request, response) {
   console.log('Ran cloud function.');
   response.success("Hello world!");
 });
