@@ -2,12 +2,15 @@ var name = require('./name.js');
 var test = require('./test.js');
 
 var client = require('./myMailModule-1.0.0.js');
-client.initialize('myDsomainName', 'myAPIKey');
+var myDomainName = process.env.MY_DOMAIN_NAME || ''
+var myAPIKey = process.env.MY_API_KEY || ''
+
+client.initialize(myDomainName, myAPIKey);
 
 Parse.Cloud.define("sendEmailToUser", function(request, response) {
   client.sendEmail({
     to: "nathan@mlab.com",
-    from: "MyMail@CloudCode.compatible",
+    from: "nathanmjpark@gmail.com",
     subject: "Hello from Cloud Code!",
     text: "Using Parse and My Mail Module is great!"
   }).then(function(httpResponse) {
