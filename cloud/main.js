@@ -1,7 +1,7 @@
 var name = require('./name.js');
 var test = require('./test.js');
 
-var client = require('../cloud/myMailModule-1.0.0.js');
+var client = require('./myMailModule-1.0.0.js');
 client.initialize('myDsomainName', 'myAPIKey');
 
 Parse.Cloud.define("sendEmailToUser", function(request, response) {
