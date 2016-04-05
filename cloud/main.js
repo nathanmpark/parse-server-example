@@ -10,7 +10,7 @@ client.initialize(myDomainName, myAPIKey);
 Parse.Cloud.define("sendEmailToUser", function(request, response) {
   client.sendEmail({
     to: "nathan@mlab.com",
-    from: "nathanmjpark@gmail.com",
+    from: "postmaster@sandbox819da0b0367e4c38a3796cc74f7ba65c.mailgun.org",
     subject: "Hello from Cloud Code!",
     text: "Using Parse and My Mail Module is great!"
   }).then(function(httpResponse) {
